@@ -37,7 +37,7 @@
     	</div>
   	</div>
   	<?php
-  	$log = $_POST['login'];
+  	//$log = $_POST['login'];
   	echo $user->getnum();
 
   	?>

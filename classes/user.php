@@ -17,7 +17,7 @@ class User
             if(isset($_POST['login']))
             {
                 $login1 = $mysqli->real_escape_string($_POST['login']);
-                $password1 = ($_POST['password']);
+                $password1 = md5(md5($_POST['password']));
             }
             else
             {
@@ -52,7 +52,7 @@ class User
             }
         }
     }
-    
+
     public function getnum()
     {
         return $this->num;

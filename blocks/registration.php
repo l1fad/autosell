@@ -13,8 +13,8 @@
 	<?php require "header.php"?>
   	<div class="container mt-4">
 		<h3>Регистрация</h3>
-	  	<form action="check.php" method="POST">
-	  		<input type="text" name="login" placeholder="Введите логин" class="form-control"></input>
+	  	<form name="registration" action="/autosell/index.php" method="POST">
+	  		<input type="text" name="rlogin" placeholder="Введите логин" class="form-control"></input>
 	  		<input type="text" name="phone" placeholder="Введите номер телефона" class="form-control mt-2"></input>
 	  		<input type="text" name="email" placeholder="Введите e-mail" class="form-control mt-2"></input>
 	  		<input type="password" name="password" type="text" placeholder="Введите пароль" class="form-control mt-2"></input>
