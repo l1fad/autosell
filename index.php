@@ -1,6 +1,7 @@
 <!DOCKTYPE html>
 <?php
 	include 'connects/database.php';
+	include 'connects/auth.php';
 ?>
 <html lang = "ru">
 <head>
@@ -12,23 +13,7 @@
 	<title>AutoSell</title>
 </head>
 <body>
-	<header class="p-3 bg-dark text-white">
-    <div class="container">
-
-      <div class="d-flex flex-wrap align-items-center justify-content-start justify-content-end">
-      <h3 class="my-0 mr-md-auto font-weight-normal"><a href = "/autosell" class = "nav-link px-4 text-white">AutoSell</a></h3>
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-        </ul>
-
-        <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Вход</button>
-          <button type="button" class="btn btn-info">Регистрация</button>
-        </div>
-      </div>
-    </div>
-  	</header>
+	<?php include "blocks/header.php"?>
   	
   	<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
   		<h3 class="display-4 fw-normal mb-5">Поиск объявлений</h3>
@@ -51,5 +36,10 @@
 	        <?php endfor; ?>
     	</div>
   	</div>
+  	<?php
+  	$log = $_POST['login'];
+  	echo $user->getnum();
+
+  	?>
 </body>
 </html>
