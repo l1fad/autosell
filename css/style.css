@@ -1,0 +1,17 @@
+.card 
+{
+	width: 32%;
+	margin-left: 1%;
+}
+
+.btn-outline-primary1
+{
+	color:#007bff;
+	border-color:#007bff
+}
+.btn-outline-primary1:hover
+{
+	color:#fff;
+	background-color:#84888c;
+	border-color:#84888c
+}
