@@ -10,7 +10,7 @@
 	<title>AutoSell</title>
 </head>
 <body>
-	<?php require "header.php"?>
+	<?php require "header1.php"?>
 	<div class="container mt-4">
 		<h3>Вход</h3>
 	  	<form action="/autosell/index.php" method="POST">

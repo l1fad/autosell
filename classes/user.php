@@ -2,7 +2,7 @@
 
 class User
 {
-    private $num;
+    private $num = NULL;
     private $login;
     private $phone;
     private $email;
