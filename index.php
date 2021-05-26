@@ -36,10 +36,6 @@
 	        <?php endfor; ?>
     	</div>
   	</div>
-  	<?php
-  	//$log = $_POST['login'];
-  	echo $user->getlogin();
-
-  	?>
+  	
 </body>
 </html>

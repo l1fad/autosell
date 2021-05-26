@@ -7,7 +7,7 @@ class Register
     private $email;
     private $password;
     private $type;
-    private $errors = [];
+    public $errors = [];
 
 
     function __construct($log, $pho, $ema, $pass)
@@ -58,15 +58,26 @@ class Register
         if(!strlen($pass)) $this->appendError('Пожалуйста, укажите пароль');
         $this->password = md5(md5($mysqli->real_escape_string($pass)));
 
+    }
 
-        if(count($this->errors) > 0) return;
+    public function checkErrors()
+    {
+        if(count($this->errors) > 0) 
+        {   
+            return 0;
+        }
+
+        return 1;
+    }
+
+    public function registration()
+    {
+        global $mysqli;
         $mysqli->query('INSERT INTO Users (ULOGIN, UPHONE, UEMAIL, UPASS, UTYPE) VALUES (\'' . $this->login . '\', \'' .$this->phone . '\', \'' . $this->email . '\', \'' .$this->password . '\', \'User\')');
-       
         setcookie('login', $this->login, time() + 3600 * 24 * 30 * 6);
         setcookie('password', $this->password, time() + 3600 * 24 * 30 * 6);
          
         header('Refresh: 0');
-
     }
 
     private function appendError($message)

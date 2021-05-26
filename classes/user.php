@@ -28,7 +28,7 @@ class User
             $result = $mysqli->query('SELECT UNUM, UPHONE, UEMAIL, UTYPE FROM USERS 
                 WHERE ULOGIN = \'' . $login1 . '\' AND UPASS = \'' . $password1 .'\'');
             if(!$result)
-                echo 'Ошибка аутентификации!';
+                echo 'Ошибка аутентификации';
             else
             {
                 $row = mysqli_fetch_row($result);
@@ -48,7 +48,10 @@ class User
                     $this->type = $row[3];
                 }
                 else
+                {
                	    $this->num = NULL;
+                    header("Location: http://localhost/autosell/blocks/login.php");
+                }
             }
         }
     }

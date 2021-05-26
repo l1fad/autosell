@@ -1,5 +1,4 @@
 <!DOCKTYPE html>
-
 <html lang = "ru">
 <head>
 	<meta charset = "UTF-8">
@@ -13,6 +12,7 @@
 	<?php require "header1.php"?>
   	<div class="container mt-4">
 		<h3>Регистрация</h3>
+		
 	  	<form name="registration" action="/autosell/index.php" method="POST">
 	  		<input type="text" name="rlogin" placeholder="Введите логин" class="form-control"></input>
 	  		<input type="text" name="phone" placeholder="Введите номер телефона" class="form-control mt-2"></input>
