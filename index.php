@@ -10,32 +10,33 @@
 	<meta http-equiv="X-UA-Compatible" content = "ie=edge">
 	<link rel="stylesheet" type="text/css" href="css/style.css?v=1.1">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+	
 	<title>AutoSell</title>
 </head>
 <body>
 	<?php include "blocks/header.php"?>
-  	
-  	<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-  		<h3 class="display-4 fw-normal mb-5">Поиск объявлений</h3>
-  		<div class="d-flex flex-wrap">
-	  		<?php
-	  		for($i = 1; $i < 7; $i++):
-			?>
-		  		<div class="card mb-4 rounded-3 shadow-sm">
-		          <div class="card-header py-3">
-		            <h4 class="my-0 fw-normal">Free</h4>
-		          </div>
-		          <div class="card-body">
-		          	
-		          	<button type = "button<?php echo $i ?>" class = "btn btn-outline-primary1">
-		          		<img src="img/logo/<?php echo $i ?>.png"> 
-		          	</button>
+  	<?php
 
-		          </div>
-		        </div>
-	        <?php endfor; ?>
-    	</div>
-  	</div>
+	if(isset($_GET['Toyota']) or isset($_GET['Nissan']) or isset($_GET['Mercedes-Benz']) or isset($_GET['Honda']) or isset($_GET['BMW']) or isset($_GET['Hyundai']))
+	{
+		include 'blocks/search.php';
+	}
+	else 
+	{
+		if(isset($_GET['product']))
+		{
+			include 'pages/product.php';
+		}
+		else 
+		{
+			include "blocks/main.php";
+		}
+	}
+     
+
+    ?>
+
+  	
   	
 </body>
 </html>
