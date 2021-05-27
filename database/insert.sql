@@ -173,3 +173,6 @@ INSERT INTO MODEL (BNUM, MNAME)
 
 INSERT INTO AD (ADNAME, UNUM, MNUM, ADPRICE, ADDESCRIPTION, ENUM, EVAL, TNUM, DNUM, WNUM, MILVAL, ADYEAR, ADPOWER) 
 	VALUES ('Продажа Honda Accord', 2, 18, 580000, 'Аккорд в хорошем состоянии', 1, 2.4, 2, 2, 1, 267000, 2006, 190);
+
+INSERT INTO AD (ADNAME, UNUM, MNUM, ADPRICE, ADDESCRIPTION, ENUM, EVAL, TNUM, DNUM, WNUM, MILVAL, ADYEAR, ADPOWER) 
+	VALUES ('Продажа Toyota Camry, 2018 год в Новосибирске', 2, 1, 2100000 , 'Автомобиль покупался новым у официального дилера', 1, 3.5, 1, 2, 1, 56000, 2018, 249);
