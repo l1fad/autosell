@@ -34,7 +34,14 @@
 		}
 		else
 		{
-			include "blocks/main.php";
+			if (isset($_POST['Newad']))
+			{
+				include 'blocks/newad.php';
+			}
+			else
+			{
+				include "blocks/main.php";
+			}
 		}
 		
 	}

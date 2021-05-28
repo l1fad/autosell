@@ -59,6 +59,25 @@
 
         
         <label class="lead">Пробег: <?php echo $row[11] ?> км. </label><br>
+        
+        
+        <?php
+          $result = $mysqli->query('SELECT Uphone FROM Users WHERE UNUM = \'' . $row[2] . '\'');
+          $row1 = mysqli_fetch_row($result);
+
+        ?>
+        <script type="text/javascript">
+          var tel_div = document.getElementById("tel");
+          var t = '<?php echo $row1[0];?>';
+          function show(){
+          tel.innerHTML = '<input type="button" value="Скрыть" class="btn btn-success mr-3" onclick="hide()" />'+t;
+          }
+          function hide(){
+          tel.innerHTML = '<input type="button" class="btn btn-success mr-3" value="Показать" onclick="show()" />Номер телефона';
+          }
+
+        </script>
+        <div id="tel"><input type="button" value="Показать" class="btn btn-success mr-3" onclick="show()" />Номер телефона</div>
 
       </div>
     </div>
