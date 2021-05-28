@@ -44,40 +44,59 @@
 						<option value="Any">Любая</option>
 		              	<?php
 		              	for($i = $beg[0]; $i < $row[0] + $beg[0]; $i++):
-		              	
+		              		
 			              	$result = $mysqli->query('SELECT MNAME FROM Model WHERE MNUM = \'' . $i . '\'');	
 			              	$row1 = mysqli_fetch_row($result);
 		              	?>
-		                	<option value="<?php echo $row1[0] ?>"><?php echo $row1[0] ?></option>
+		                	<option <?php if(isset($_GET['Model']) and $_GET['Model'] == $i) { echo "selected";}?>
+	                		value="<?php echo $i ?>"><?php echo $row1[0] ?></option>
 		                <?php endfor; ?>
 	              	</select>
 	    		</div>
 
 				<div class="col-sm-6">
 	    			<label class="form-label">Цена от</label>
-	    			<input type="number" min="0" class="form-control" name="pricelow" step="1">
+	    			<input required="" onfocus="this.select();" type="number" min="0" class="form-control" name="pricelow" step="1" 
+	    				<?php if(isset($_GET['pricelow'])) { echo "value ="; echo $_GET['pricelow'];} 
+	    					else {echo "value = 0";}
+	    				?> >
 	    		</div>
 	    		<div class="col-sm-6">
 	    			<label class="form-label">Цена до</label>
-	    			<input type="number" min="0" class="form-control" name="pricehigh" step="1">
+	    			<input required="" onfocus="this.select();" type="number" min="0" class="form-control" name="pricehigh" step="1"
+	    			<?php if(isset($_GET['pricehigh'])) { echo "value ="; echo $_GET['pricehigh'];}
+	    				else {echo "value = 3000000";}
+	    			?>>
 	    		</div>
 
 	    		<div class="col-sm-6">
 	    			<label class="form-label">Год от</label>
-	    			<input  type="number" class="form-control" name="yearlow" min="1940" max="2021" step="1">
+	    			<input required="" onfocus="this.select();" type="number" class="form-control" name="yearlow" min="1940" max="2021" step="1"
+	    			<?php if(isset($_GET['yearlow'])) { echo "value ="; echo $_GET['yearlow'];}
+	    				else {echo "value = 1940";}
+	    			?>>
 	    		</div>
 	    		<div class="col-sm-6">
 	    			<label class="form-label">Год до</label>
-	    			<input type="number" class="form-control" name="yearhigh" min="1940" max="2021" step="1">
+	    			<input required="" onfocus="this.select();" type="number" class="form-control" name="yearhigh" min="1940" max="2021" step="1"
+	    			<?php if(isset($_GET['yearhigh'])) { echo "value ="; echo $_GET['yearhigh'];}
+	    				else {echo "value = 2021";}
+	    			?>>
 	    		</div>
 
 	    		<div class="col-sm-6">
 	    			<label class="form-label">Пробег от</label>
-	    			<input type="number" class="form-control" name="mileagelow" min="0" max="1000000" step="1">
+	    			<input required="" onfocus="this.select();" type="number" class="form-control" name="mileagelow" min="0" max="1000000" step="1"
+	    			<?php if(isset($_GET['mileagelow'])) { echo "value ="; echo $_GET['mileagelow'];}
+	    				else {echo "value = 0";}
+	    			?>>
 	    		</div>
 	    		<div class="col-sm-6">
 	    			<label class="form-label">Пробег до</label>
-	    			<input type="number" class="form-control" name="mileagehigh" min="0" max="1000000" step="1">
+	    			<input required="" onfocus="this.select();" type="number" class="form-control" name="mileagehigh" min="0" max="1000000" step="1"
+	    			<?php if(isset($_GET['mileagehigh'])) { echo "value ="; echo $_GET['mileagehigh'];}
+	    				else {echo "value = 1000000";}
+	    			?>>
 	    		</div>
 	    	</div>	
 	    </div>
@@ -86,20 +105,32 @@
 			<div class="row ">	
 				<div class="col-sm-6">
 	    			<label class="form-label">Объем от </label>
-	    			<input type="number" class="form-control" name="enginevallow" min="0.7" max="6.0" step="0.1">
+	    			<input required="" onfocus="this.select();" type="number" class="form-control" name="enginevallow" min="0.7" max="6.0" step="0.1"
+	    			<?php if(isset($_GET['enginevallow'])) { echo "value ="; echo $_GET['enginevallow'];}
+	    				else {echo "value = 0.7";}
+	    			?>>
 	    		</div>
 	    		<div class="col-sm-6">
 	    			<label class="form-label">Объем до </label>
-	    			<input type="text" class="form-control" name="enginevalhigh" min="0.7" max="6.0" step="0.1">
+	    			<input required="" onfocus="this.select();" type="text" class="form-control" name="enginevalhigh" min="0.7" max="6.0" step="0.1"
+	    			<?php if(isset($_GET['enginevalhigh'])) { echo "value ="; echo $_GET['enginevalhigh'];}
+	    				else {echo "value = 6.0";}
+	    			?>>
 	    		</div>
 
 	    		<div class="col-sm-6">
 	    			<label class="form-label">Мощность от </label>
-	    			<input type="number" class="form-control" name="powerlow" min="1" max="10000" step="1">
+	    			<input required="" onfocus="this.select();" type="number" class="form-control" name="powerlow" min="1" max="1000" step="1"
+	    			<?php if(isset($_GET['powerlow'])) { echo "value ="; echo $_GET['powerlow'];}
+	    				else {echo "value = 1";}
+	    			?>>
 	    		</div>
 	    		<div class="col-sm-6">
 	    			<label class="form-label">Мощность до </label>
-	    			<input type="number" class="form-control" name="powerhigh" min="1" max="10000" step="1">
+	    			<input required="" onfocus="this.select();" type="number" class="form-control" name="powerhigh" min="1" max="1000" step="1"
+	    			<?php if(isset($_GET['powerhigh'])) { echo "value ="; echo $_GET['powerhigh'];}
+	    				else {echo "value = 1000";}
+	    			?>>
 	    		</div>
 
 				<div class="col-sm-6">
@@ -111,14 +142,14 @@
     		  	  ?>
 					<label class="form-label">Трансмиссия</label>
 					<select  class="form-select1" name="Transmission">
-						<option value="Any">Любая</option>
 		              	<?php
 		              	for($i = 1; $i <= $row[0]; $i++):
 		              	
 			              	$result = $mysqli->query('SELECT TNAME FROM Transmission WHERE TNUM = \'' . $i . '\'');	
 			              	$row1 = mysqli_fetch_row($result);
 		              	?>
-		                	<option  value="<?php echo $row1[0] ?>" <?php if(isset($_GET[$row1[0]])) { echo "selected"; $b = $i; }?> ><?php echo $row1[0] ?></option>
+		                	<option  <?php if(isset($_GET['Transmission']) and $_GET['Transmission'] == $i) { echo "selected";}?>
+		                		value="<?php echo $i ?>"><?php echo $row1[0] ?></option>
 		                <?php endfor; ?>
 	              	</select>
 	    		</div>
@@ -133,14 +164,14 @@
     		  	  ?>
 					<label class="form-label">Топливо</label>
 					<select  class="form-select1" name="Engine">
-						<option name="Any">Любое</option>
 		              	<?php
 		              	for($i = 1; $i <= $row[0]; $i++):
 		              	
 			              	$result = $mysqli->query('SELECT ENAME FROM Engine1 WHERE ENUM = \'' . $i . '\'');	
 			              	$row1 = mysqli_fetch_row($result);
 		              	?>
-		                	<option  name="<?php echo $row1[0] ?>" <?php if(isset($_GET[$row1[0]])) { echo "selected"; $b = $i; }?> ><?php echo $row1[0] ?></option>
+		                	<option  <?php if(isset($_GET['Engine']) and $_GET['Engine'] == $i) { echo "selected";}?>
+		                		value="<?php echo $i ?>"><?php echo $row1[0] ?></option>
 		                <?php endfor; ?>
 	              	</select>
 
@@ -155,14 +186,14 @@
     		  	  ?>
 					<label class="form-label">Руль</label>
 					<select  class="form-select1" name="Wheel">
-						<option name="Any">Любой</option>
 		              	<?php
 		              	for($i = 1; $i <= $row[0]; $i++):
 		              	
 			              	$result = $mysqli->query('SELECT WNAME FROM Wheel WHERE WNUM = \'' . $i . '\'');	
 			              	$row1 = mysqli_fetch_row($result);
 		              	?>
-		                	<option  value="<?php echo $row1[0] ?>" <?php if(isset($_GET[$row1[0]])) { echo "selected"; $b = $i; }?> ><?php echo $row1[0] ?></option>
+		                	<option  <?php if(isset($_GET['Wheel']) and $_GET['Wheel'] == $i) { echo "selected";}?>
+		                		value="<?php echo $i ?>"><?php echo $row1[0] ?></option>
 		                <?php endfor; ?>
 	              	</select>
 	    		</div>
