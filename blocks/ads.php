@@ -118,8 +118,17 @@
 				else
 				{
 					if ('Any' == $_GET['Model'] )
-					{ ?>
+					{ 
 
+						$result = $mysqli->query('SELECT MNAME, BNUM FROM Model WHERE MNUM = \'' . $row1[0] . '\'');
+						$row2 = mysqli_fetch_row($result);
+
+						$result = $mysqli->query('SELECT BNAME FROM Brand WHERE BNUM = \'' . $row2[1] . '\'');
+						$row3 = mysqli_fetch_row($result);
+						
+						if ($_GET['Brand'] == $row3[0])
+						{
+						?>
 						<button name = "Ad" value = "<?php echo $i ?>" class = "btn btn-outline-primary2 mb-2 mr-5">
 						<div class="row">
 							<div class="col-sm-3 ">
@@ -173,7 +182,9 @@
 					</button>
 
 
-			<?php   }
+			<?php   	}
+					}
+
 				}
 			}
 
