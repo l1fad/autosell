@@ -62,7 +62,7 @@
 				if ($row1[0] == $_GET['Model'])
 				{
 			?>
-					<button name = "Ad" value = "<?php echo $i ?>" class = "btn1 btn-outline-primary2 mb-2 mr-5">
+					<button name = "Ad" value = "<?php echo $i ?>" class = "btn btn-outline-primary2 mb-2 mr-5">
 						<div class="row">
 							<div class="col-sm-3 ">
 								<img src = img/example.jpg width="240" height="180"> </img>
@@ -120,7 +120,7 @@
 					if ('Any' == $_GET['Model'] )
 					{ ?>
 
-						<button name = "Ad" value = "<?php echo $i ?>" class = "btn1 btn-outline-primary2 mb-2 mr-5">
+						<button name = "Ad" value = "<?php echo $i ?>" class = "btn btn-outline-primary2 mb-2 mr-5">
 						<div class="row">
 							<div class="col-sm-3 ">
 								<img src = img/example.jpg width="240" height="180"> </img>

@@ -30,7 +30,7 @@
 	{
 		if (isset($_GET['Ad']))
 		{
-			include 'blocks/search.php';
+			include 'blocks/singlead.php';
 		}
 		else
 		{

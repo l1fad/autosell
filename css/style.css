@@ -21,6 +21,11 @@
 	border-color:#84888c
 }
 
+.perenos-hyphens {
+-moz-hyphens: auto;
+-webkit-hyphens: auto;
+-ms-hyphens: auto;
+} 
 .btn-outline-primary2
 {
 	width: 100%;
