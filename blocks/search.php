@@ -30,8 +30,8 @@
 	              	</select>
 	    		</div>
 
-
 	    		<div class="col-sm-6">
+
 				<?php 
 					global $mysqli;
 					$result = $mysqli->query('SELECT COUNT(*) FROM Model WHERE BNUM = \'' . $b . '\'');
@@ -112,7 +112,7 @@
 	    		</div>
 	    		<div class="col-sm-6">
 	    			<label class="form-label">Объем до </label>
-	    			<input required="" onfocus="this.select();" type="text" class="form-control" name="enginevalhigh" min="0.7" max="6.0" step="0.1"
+	    			<input required="" onfocus="this.select();" type="number" class="form-control" name="enginevalhigh" min="0.7" max="6.0" step="0.1"
 	    			<?php if(isset($_GET['enginevalhigh'])) { echo "value ="; echo $_GET['enginevalhigh'];}
 	    				else {echo "value = 6.0";}
 	    			?>>

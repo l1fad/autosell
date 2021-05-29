@@ -34,7 +34,7 @@
 		}
 		else
 		{
-			if (isset($_POST['Newad']))
+			if (isset($_GET['Newad']))
 			{
 				include 'blocks/newad.php';
 			}

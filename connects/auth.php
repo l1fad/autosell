@@ -60,12 +60,12 @@ if(isset($_POST['rlogin']))
 	}
 	
 }
-else if(isset($_POST['logout']))
+else if(isset($_GET['logout']))
 {
 	setcookie('login', '', time() - 3600 * 24 * 30 * 6);
 	setcookie('password', '', time() - 3600 * 24 * 30 * 6);
 	unset($_COOKIE['login']);
 	unset($_COOKIE['password']);
-	header('Refresh: 0');
+	header("Location: http://localhost/autosell/index.php");
 }
 ?>
