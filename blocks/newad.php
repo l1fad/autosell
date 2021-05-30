@@ -13,7 +13,7 @@
 				$row = mysqli_fetch_row($result);
 			?>
               <label class="form-label">Марка автомобиля</label>
-              <select class="form-select1" name="brand1" required="" onchange="if (this.value) window.location.href = 'http://localhost/autosell/?Newad='+this.value">
+              <select class="form-select1" name="brand" required="" onchange="if (this.value) window.location.href = 'http://localhost/autosell/?Newad='+this.value">
                 <?php
 	              	for($i = 1; $i <= $row[0]; $i++):
 	              	
@@ -162,7 +162,7 @@
             </div>
             <div class="col-12">
             	<label for="exampleFormControlTextarea1">Введите описание</label>
-            	<textarea  class="form-control" id="exampleFormControlTextarea1" rows="4" maxlength="1000"></textarea>
+            	<textarea  class="form-control" name="description" rows="4" maxlength="1000" required=""></textarea>
             </div>
 
 

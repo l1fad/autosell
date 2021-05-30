@@ -2,6 +2,7 @@
 <?php
 	include 'connects/database.php';
 	include 'connects/auth.php';
+	include 'connects/newadtodb.php';
 ?>
 <html lang = "ru">
 <head>
@@ -17,7 +18,7 @@
 <body>
 	<?php include "blocks/header.php"?>
   	<?php
-
+  	
 	if(isset($_GET['Toyota']) or isset($_GET['Nissan']) or isset($_GET['Mercedes-Benz']) or isset($_GET['Honda']) or isset($_GET['BMW']) or isset($_GET['Hyundai']) or isset($_GET['send1']))
 	{
 		include 'blocks/search.php';
