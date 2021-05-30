@@ -6,10 +6,44 @@
 
     $row = mysqli_fetch_row($result);
     ?>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <h3 class="perenos-hyphens mb-4 mt-3"><?php echo $row[1] ?></h3>
     <div class="row">
-      <div class="col-sm  ">
-        <img src = img/<?php echo $_GET['Ad'] ?>_1.jpeg width="434" height="326"> </img>
+      <div class="col-sm">
+        <div id="carousel" class="carousel slide" data-interval="9000">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="img-fluid" src="img/<?php echo $_GET['Ad'] ?>_1.jpeg" width="690" height="390"></img>
+            </div>
+            <?php
+              if ($row[15] > 1)
+              {
+            ?>
+             <?php 
+                for($i = 2; $i <= $row[15]; $i++)
+                { ?>
+                <div class="carousel-item">
+                  <img class="img-fluid" src="img/<?php echo $_GET['Ad'] ?>_<?php echo $i ?>.jpeg" width="690" height="390"></img>
+                </div>
+            <?php 
+                }
+              }
+             ?>
+          </div>
+
+          <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Предыдущий</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Следующий</span>
+          </a>
+      </div>
+
         <h4>Описание</h4>
         <label class="form-label perenos-hyphens"><?php echo $row[5] ?></label>
         
