@@ -1,5 +1,5 @@
 <body>
-	<form action="/autosell/index.php" method="POST">
+	<form action="/autosell/index.php" method="POST" enctype="multipart/form-data">
 
 	<div class="container">
 	<h3 class="display-4 fw-normal mb-5 text-center">Размещение объявления</h3>	
@@ -161,17 +161,64 @@
               <input type="number" onfocus="this.select();" class="form-control" name="enginepower" required="" min="1" max="1000" step="1" value="137">
             </div>
             <div class="col-12">
-            	<label for="exampleFormControlTextarea1">Введите описание</label>
+            	<label class="form-label">Введите описание</label>
             	<textarea  class="form-control" name="description" rows="4" maxlength="1000" required=""></textarea>
             </div>
 
 
             <div class="col-md-4">
+            	<label class="form-label">Выберите количество изображений</label><br>
+            	<input name="img_q" type="number" id="col" value="1" class="form-control mb-3" disabled="">
+            	<input name="img_q1" type="hidden" id="col1" value="1">
+            	<input type="button" id="plus" class="btn btn-success plusandminus hover" value="+">
+				<input type="button" id="minus" class="btn btn-success plusandminus hover" value="-">
+				
+            	
             </div>
             <div class="col-md-4">
+            	<label class="form-label">Выберите изображения</label>
+            	<?php $i = 1 ?>
+            	<script type="text/javascript">
+
+            		let col = document.getElementById('col');
+            		let col1 = document.getElementById('col1');
+					let plus = document.getElementById('plus');
+					let minus = document.getElementById('minus');
+
+					var img_div = document.getElementById("img");
+					var t = 1;
+
+					plus.onclick = function() 
+					{
+						
+						if(t < 10)
+						{
+					  		t++;
+					  		img.innerHTML += '<input type="file" name="image'+t+'" class="form-control" required="">';
+					  		col.value = parseInt(col.value) + 1;
+					  		col1.value = col.value;
+				  		}
+					}
+
+					minus.onclick = function() 
+					{
+						if(t > 1)
+						{
+							tmp = '<input type="file" name="image'+t+'" class="form-control" required="">';
+							img.innerHTML=img.innerHTML.replace(new RegExp(tmp),'');
+							t--;
+							col.value = parseInt(col.value) - 1;
+							col1.value = col.value;
+						}
+					}
+
+		        </script>
+		        <div id="img"><input type="file" name="image1" class="form-control" required=""></div>
             </div>
-            <div class="col-md-4 ">
-				<button type="submit" name="add" class="btn btn-success search hover" value = "1">Добавить</button>
+            <div class="col-md-4">
+            	<labek class="mb-5"></label>
+				<button type="submit" name="add" class="btn btn-success search hover mt-4" value = "1">Добавить</button>
+
 	    	</div>
           </div>
       </div>

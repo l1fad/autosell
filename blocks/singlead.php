@@ -9,7 +9,7 @@
     <h3 class="perenos-hyphens mb-4 mt-3"><?php echo $row[1] ?></h3>
     <div class="row">
       <div class="col-sm  ">
-        <img src = img/example.jpg width="434" height="326"> </img><br>
+        <img src = img/<?php echo $_GET['Ad'] ?>_1.jpeg width="434" height="326"> </img>
         <h4>Описание</h4>
         <label class="form-label perenos-hyphens"><?php echo $row[5] ?></label>
         
