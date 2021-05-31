@@ -194,7 +194,7 @@
 						if(t < 10)
 						{
 					  		t++;
-					  		img.innerHTML += '<input type="file" name="image'+t+'" class="form-control" required="">';
+					  		img.innerHTML += '<input type="file" name="image'+t+'" class="form-control" required="" accept=".jpg, .jpeg, .png">';
 					  		col.value = parseInt(col.value) + 1;
 					  		col1.value = col.value;
 				  		}
@@ -204,7 +204,7 @@
 					{
 						if(t > 1)
 						{
-							tmp = '<input type="file" name="image'+t+'" class="form-control" required="">';
+							tmp = '<input type="file" name="image'+t+'" class="form-control" required="" accept=".jpg, .jpeg, .png">';
 							img.innerHTML=img.innerHTML.replace(new RegExp(tmp),'');
 							t--;
 							col.value = parseInt(col.value) - 1;
@@ -213,7 +213,7 @@
 					}
 
 		        </script>
-		        <div id="img"><input type="file" name="image1" class="form-control" required=""></div>
+		        <div id="img"><input type="file" name="image1" class="form-control" required="" accept=".jpg, .jpeg, .png"></div>
             </div>
             <div class="col-md-4">
             	<labek class="mb-5"></label>

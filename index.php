@@ -36,13 +36,21 @@
 		}
 		else
 		{
-			if (isset($_GET['Newad']))
+			if (isset($_POST['edit']))
 			{
-				include 'blocks/newad.php';
+				include 'blocks/editad.php';
 			}
 			else
 			{
-				include "blocks/main.php";
+
+				if (isset($_GET['Newad']))
+				{
+					include 'blocks/newad.php';
+				}
+				else
+				{
+					include "blocks/main.php";
+				}
 			}
 		}
 		
