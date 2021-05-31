@@ -167,8 +167,8 @@
 
             <div class="col-md-4">
               <label class="form-label">Выберите количество изображений</label><br>
-              <input name="img_q" type="number" id="col" value="<?php echo $q[0] ?>" class="form-control mb-3" disabled="">
-              <input name="img_q1" type="hidden" id="col1" value="<?php echo $q[0] ?>">
+              <input name="img_q" type="number" id="col" value="<?php echo $q[0]+1 ?>" class="form-control mb-3" disabled="">
+              <input name="img_q1" type="hidden" id="col1" value="<?php echo $q[0]+1 ?>">
               <input type="button" id="plus" class="btn btn-success plusandminus hover" value="+">
               <input type="button" id="minus" class="btn btn-success plusandminus hover" value="-">
         
@@ -205,7 +205,7 @@
                   if(t < 10)
                   {
                       t++;
-                      img.innerHTML += '<input type="file" name="image'+t+'" class="form-control">';
+                      img.innerHTML += '<input type="file" name="image'+t+'" class="form-control mt-1">';
                       col.value = parseInt(col.value) + 1;
                       col1.value = col.value;
                   }
@@ -213,9 +213,9 @@
 
                 minus.onclick = function() 
                 {
-                  if(t > <?php echo $q[0] ?>)
+                  if(t > <?php echo $q[0]+1 ?>)
                   {
-                    tmp = '<input type="file" name="image'+t+'" class="form-control">';
+                    tmp = '<input type="file" name="image'+t+'" class="form-control mt-1">';
                     img.innerHTML=img.innerHTML.replace(new RegExp(tmp),'');
                     t--;
                     col.value = parseInt(col.value) - 1;
@@ -225,21 +225,15 @@
             </script>
               <label class="form-label">Выберите изображения</label>
               <div id="img">
-     
-             
-                <input type="file" name="image<?php echo $q[0]+1 ?>" class="form-control" src="img/<?php echo $_POST['edit'] ?>_<?php echo $i ?>.jpeg" accept=".jpg, .jpeg, .png">
+
+                <input type="file" name="image<?php echo $q[0]+1 ?>" class="form-control"  accept=".jpg, .jpeg, .png">
 
             </div>
+            <button type="submit" name="edit1" class="btn btn-success plusandminus hover mt-3" value = "<?php echo $_POST['edit'] ?>">Изменить</button>
+            <button type="submit" name="edit1" class="btn btn-success plusandminus hover mt-3" value = "0">Отмена</button>
             </div>
 
-            <div class="col-md-4">
-            </div>
-            <div class="col-md-4">
-            </div>
-            <div class="col-md-4">
-              <button type="submit" name="edit1" class="btn btn-success search hover mt-4" value = "1">Добавить</button>
-            </div>
-          </div>
+            
       </div>
   </form>
 </body>
