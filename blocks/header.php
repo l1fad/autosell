@@ -19,6 +19,7 @@
             echo '<form action="/autosell/index.php" method="GET" class="text-end mt-4">';
             echo '<h4>Добро пожаловать, ';
             echo $tmp;
+            echo '<button type="submit" name="Myads" value="1" class="btn btn-outline-light me-2 ml-3">Мои объявления</a>';
             echo '<button type="submit" name="Newad" value="1" class="btn btn-outline-light me-2 ml-3">Разместить объявление</a>';
             echo '</form>';
             echo '<button type="submit" name="logout" class="btn btn-info ml-3">Выход</button>';
