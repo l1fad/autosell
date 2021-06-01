@@ -8,6 +8,9 @@
 		$result = $mysqli->query('SELECT QIMG FROM Ad WHERE ADNUM = \'' . $_POST['edit1'] . '\'');
 
         $q = mysqli_fetch_row($result);
+
+        $result = $mysqli->query('SELECT INAME, INUM FROM Img WHERE IADNUM = \'' . $_POST['edit1'] . '\'');
+
         $name = 'image'.($q[0]+1);
         $errors = array();
         if($_FILES[$name]['type'] != NULL)
@@ -46,7 +49,10 @@
 		    	{	
 					if (empty($errors) == true)
 					{
-		    			move_uploaded_file($_FILES[$name]['tmp_name'], "img/".$_POST['edit1']."_".$i.".jpeg");
+						$filename = $_POST['edit1']."_".$i.rand().".jpeg";
+		    			move_uploaded_file($_FILES[$name]['tmp_name'], "img/".$filename);
+		    			$mysqli->query('INSERT INTO Img (IADNUM, INAME) 
+		    				VALUES (\'' . $_POST['edit1'] . '\', \'' . $filename . '\')');
 		    			$q[0] = $_POST['img_q1'];
 		    		}
 		    		else
@@ -60,29 +66,23 @@
 		    	}
 	    	}
     	}
-
-		for($i = $q[0]; $i >= 1; $i--)
+    	$k = $q[0];
+    	for($i = 1; $i <= $k; $i++)
 		{
+			$img = mysqli_fetch_row($result);
 			$name = 'image'.($i);
-        	if(!isset($_FILES[$name]))
-        	{	
-				$name = 'imgdel'.$i;
+			if(!isset($_FILES[$name]))
+        	{
+        		$name = 'imgdel'.$i;
 				if ($_POST[$name])
 				{
-					unlink("img/".$_POST['edit1']."_".$i.".jpeg");
-					clearstatcache();
-					if ($i != $q[0])
-					{
-						for($j = $i + 1; $j <= $q[0]; $j++)
-						{
-							rename("img/".$_POST['edit1']."_".$j.".jpeg", "img/".$_POST['edit1']."_".($j-1).".jpeg");
-						}
-						
-					}
+					unlink("img/".$img[0]);
+					$mysqli->query('DELETE FROM Img WHERE INUM = \'' . $img[1] . '\' ');
 					$q[0] = $q[0] - 1;
 				}
-			}
+        	}
 		}
+
 
 		if (empty($errors) == true)
 		{
@@ -94,17 +94,7 @@
 	    	 	MILVAL = \'' . $_POST['mileage'] . '\', ADYEAR = \'' . $_POST['year'] . '\', 
 	    	 	ADPOWER = \'' . $_POST['enginepower'] . '\', QIMG = \'' . $q[0] . '\'
 	    	 	WHERE ADNUM = \'' . $_POST['edit1'] . '\'');
-	    	/*header('Cache-Control: no-store, no-cache, must-revalidate');
-			header('Expires: ' . date('r'));
-			header('Pragma: no-cache');
-	    	//clearstatcache();
-	    	header("Location: http://localhost/autosell/index.php?Ad=".$_POST['edit1']."&?nocache=".rand());*/
-	    	header("Expires: Tue, 01 Jan 2000 00:00:00 GMT"); 
-	    	header("Last-Modified: " . gmdate("D, d MYH:i:s") . " GMT"); 
-	    	header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0"); 
-	    	header("Cache-Control: post-check=0, pre-check=0", false); 
-	    	header("Pragma: no-cache");
-	    	header("Location: http://localhost/autosell/index.php?Ad=".$_POST['edit1']."&?nocache=".rand());
+	   		echo "Объявление успешно изменено";
     	}
 
 	}

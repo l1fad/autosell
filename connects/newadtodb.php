@@ -48,7 +48,10 @@
 	    	{	
 				if (empty($errors) == true)
 				{
-	    			move_uploaded_file($_FILES[$name]['tmp_name'], "img/".$row[0]."_".$i.".jpeg");
+					$filename = $row[0]."_".$i.rand().".jpeg";
+    				move_uploaded_file($_FILES[$name]['tmp_name'], "img/".$filename);
+	    			$mysqli->query('INSERT INTO Img (IADNUM, INAME) 
+	    				VALUES (\'' . $row[0] . '\', \'' . $filename . '\')');
 	    		}
 	    		else
 	    		{

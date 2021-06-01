@@ -179,10 +179,12 @@
              
               
             <?php 
+              $result = $mysqli->query('SELECT INAME FROM Img WHERE IADNUM = \'' . $_POST['edit'] . '\'');
               for($i = 1; $i <= $q[0]; $i++)
               {
+                $img = mysqli_fetch_row($result);
             ?>
-                <img src = "img/<?php echo $_POST['edit'] ?>_<?php echo $i ?>.jpeg" width="180" height="120" class="mb-2"> </img>
+                <img src = "img/<?php echo $img[0] ?>" width="180" height="120" class="mb-2"> </img>
                 <input type="radio" name="imgdel<?php echo $i ?>" value="0" checked/>Оставить
                 <input type="radio" name="imgdel<?php echo $i ?>" value="1" />Удалить
         <?php } ?>

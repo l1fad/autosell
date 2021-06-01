@@ -69,7 +69,12 @@
 						<button name = "Ad" value = "<?php echo $i ?>" class = "btn btn-outline-primary2 mb-2 mr-5">
 							<div class="row">
 								<div class="col-sm-3 ">
-									<img src = img/<?php echo $i ?>_1.jpeg width="240" height="180"> </img>
+									<?php
+									$result = $mysqli->query('SELECT INAME FROM Img WHERE IADNUM = \'' . $i . '\'');
+
+									$img = mysqli_fetch_row($result);
+									?>
+									<img src = img/<?php echo $img[0] ?> width="240" height="180"> </img>
 								</div>
 
 								
@@ -136,7 +141,12 @@
 							<button name = "Ad" value = "<?php echo $i ?>" class = "btn btn-outline-primary2 mb-2 mr-5">
 							<div class="row">
 								<div class="col-sm-3 ">
-									<img src = img/<?php echo $i ?>_1.jpeg width="240" height="180"> </img>
+									<?php
+									$result = $mysqli->query('SELECT INAME FROM Img WHERE IADNUM = \'' . $i . '\'');
+
+									$img = mysqli_fetch_row($result);
+									?>
+									<img src = img/<?php echo $img[0] ?> width="240" height="180"> </img>
 								</div>
 
 								

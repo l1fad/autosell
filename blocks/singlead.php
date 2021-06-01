@@ -12,13 +12,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <h3 class="perenos-hyphens mb-4 mt-3"><?php echo $row[1] ?></h3>
+    <?php
+    
+    $result = $mysqli->query('SELECT INAME FROM Img WHERE IADNUM = \'' . $_GET['Ad'] . '\'');
+
+    $img = mysqli_fetch_row($result);
+    
+    ?>
     <input type="hidden" name="adname" value = "<?php echo $row[1] ?>">
     <div class="row">
       <div class="col-sm">
         <div id="carousel" class="carousel slide" data-interval="90000">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="img-fluid" src="img/<?php echo $_GET['Ad'] ?>_1.jpeg" width="690" height="390"></img>
+              <img class="img-fluid" src="img/<?php echo $img[0] ?>" width="690" height="390"></img>
             </div>
             <?php
               if ($row[15] > 1)
@@ -26,9 +33,11 @@
             ?>
              <?php 
                 for($i = 2; $i <= $row[15]; $i++)
-                { ?>
+                { 
+                  $img = mysqli_fetch_row($result);
+                  ?>
                 <div class="carousel-item">
-                  <img class="img-fluid" src="img/<?php echo $_GET['Ad'] ?>_<?php echo $i ?>.jpeg" width="690" height="390"></img>
+                  <img class="img-fluid" src="img/<?php echo $img[0] ?>" width="690" height="390"></img>
                 </div>
             <?php 
                 }
