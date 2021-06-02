@@ -58,6 +58,8 @@
         <h4>Описание</h4>
         <label class="form-label perenos-hyphens"><?php echo $row[5] ?></label>
         <input type="hidden" name="desc" value = "<?php echo $row[5] ?>">
+        
+
       </div>
       <div class="col-sm ">
         <h1 class>Характеристики:</h1>
@@ -143,4 +145,78 @@
     </div>
   </div>
   </form>
+
+
+  
+  <div class="container ">
+    <h4>Связь с продавцом</h4>
+    <?php
+    $result = $mysqli->query('SELECT MUNUM, MDATE, MVAL FROM Message WHERE MADNUM = \'' . $_GET['Ad'] . '\'');
+    $mes = mysqli_fetch_row($result);
+    $j = 0;
+    while ($mes)
+    {
+      $j++;
+      if (isset($_GET['page']))
+      { 
+        if ($j <= $_GET['page']*3 and $j > ($_GET['page'] - 1) * 3)
+        {
+      ?>
+          <div class="css-vhov95">
+            <?php
+            $result1 = $mysqli->query('SELECT ULOGIN FROM Users WHERE UNUM = \'' . $mes[0] . '\'');
+            $login =  mysqli_fetch_row($result1);
+            ?>
+            <h5><?php echo $login[0] ?>: <?php echo $mes[1] ?></h5>  
+            <label class="form-label perenos-hyphens"><?php echo $mes[2] ?></label><br>
+          </div>
+
+          <?php
+        
+        }
+      }
+      else
+      {
+        if ($j <= 3 and $j > 0)
+        {
+      ?>
+          <div class="css-vhov95">
+            <?php
+            $result1 = $mysqli->query('SELECT ULOGIN FROM Users WHERE UNUM = \'' . $mes[0] . '\'');
+            $login =  mysqli_fetch_row($result1);
+            ?>
+            <h5><?php echo $login[0] ?>: <?php echo $mes[1] ?></h5>  
+            <label class="form-label perenos-hyphens"><?php echo $mes[2] ?></label><br>
+          </div>
+
+          <?php
+          
+        }
+      }
+      $mes = mysqli_fetch_row($result);
+    }
+    ?>
+
+  <form action="/autosell/index.php" method="GET" >
+      <div class="col-sm ">
+      <?php
+        
+      for($i = 0; $i < $j / 3; $i++)
+      { ?>  
+        <input type="hidden" name="Ad" value="<?php echo $_GET['Ad'] ?>">
+        <button type="submit" name="page" class="btn pages btn-success" value = "<?php echo $i+1 ?>"><?php echo $i+1 ?>
+        </button>
+
+   <?php } ?>
+        </div>
+      </form>
+
+    <textarea  class="form-control" name="message" rows="4" maxlength="500" required="" placeholder="Задайте вопрос продавцу"></textarea>
+    <form action="/autosell/index.php?" method="POST" >
+      <div class="text-right">
+        <button type="submit" name="sendmessage" class="btn btn-success mt-2 pull-right" value = "<?php echo $_GET['Ad'] ?>">Отправить</button>
+      </div>
+    </form>
+  </div>
+ 
 </body>

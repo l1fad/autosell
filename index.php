@@ -22,7 +22,8 @@
   	include 'connects/newadtodb.php';
   	include 'connects/editadtodb.php';
   	include 'connects/deletefromdb.php';
-
+  	include 'connects/messagetodb.php';
+  	
 	if(isset($_GET['Toyota']) or isset($_GET['Nissan']) or isset($_GET['Mercedes-Benz']) or isset($_GET['Honda']) or isset($_GET['BMW']) or isset($_GET['Hyundai']) or isset($_GET['send1']))
 	{
 		include 'blocks/search.php';
