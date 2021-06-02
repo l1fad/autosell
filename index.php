@@ -21,6 +21,7 @@
   	
   	include 'connects/newadtodb.php';
   	include 'connects/editadtodb.php';
+  	include 'connects/deletefromdb.php';
 
 	if(isset($_GET['Toyota']) or isset($_GET['Nissan']) or isset($_GET['Mercedes-Benz']) or isset($_GET['Honda']) or isset($_GET['BMW']) or isset($_GET['Hyundai']) or isset($_GET['send1']))
 	{
@@ -43,21 +44,28 @@
 				include 'blocks/editad.php';
 			}
 			else
-			{
+			{	
 
-				if (isset($_GET['Newad']))
+				if (isset($_POST['del']))
 				{
-					include 'blocks/newad.php';
+					include 'blocks/delete.php';
 				}
 				else
 				{
-					if (isset($_GET['Myads']))
+					if (isset($_GET['Newad']))
 					{
-						include 'blocks/myads.php';
+						include 'blocks/newad.php';
 					}
 					else
 					{
-						include "blocks/main.php";
+						if (isset($_GET['Myads']))
+						{
+							include 'blocks/myads.php';
+						}
+						else
+						{
+							include "blocks/main.php";
+						}
 					}
 				}
 			}

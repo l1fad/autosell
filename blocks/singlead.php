@@ -129,11 +129,12 @@
         </script>
         <div id="tel"><input type="button" value="Показать" class="btn btn-success mr-3" onclick="show()" />Номер телефона</div>
         <?php
-        if($row[2] == $user->getnum())
+        if($row[2] == $user->getnum() or $user->gettype() == "Admin")
         {
         ?>
         
           <button type="submit" name="edit" class="btn btn-success mt-2" value = "<?php echo $_GET['Ad'] ?>">Редактировать</button>
+          <button type="submit" name="del" class="btn btn-danger mt-2" value = "<?php echo $_GET['Ad'] ?>">Удалить</button>
         
         <?php
         }
