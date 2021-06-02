@@ -56,7 +56,7 @@
       </div>
 
         <h4>Описание</h4>
-        <label class="form-label perenos-hyphens"><?php echo $row[5] ?></label>
+        <label class="form-label lead perenos-hyphens"><?php echo $row[5] ?></label>
         <input type="hidden" name="desc" value = "<?php echo $row[5] ?>">
         
 
@@ -168,7 +168,7 @@
             $login =  mysqli_fetch_row($result1);
             ?>
             <h5><?php echo $login[0] ?>: <?php echo $mes[1] ?></h5>  
-            <label class="form-label perenos-hyphens"><?php echo $mes[2] ?></label><br>
+            <label class="form-label lead perenos-hyphens"><?php echo $mes[2] ?></label><br>
           </div>
 
           <?php
