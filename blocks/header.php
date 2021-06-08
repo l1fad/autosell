@@ -6,25 +6,29 @@
         <?php 
           if($user->getnum() == NULL)
           {
-            echo 
-            '<form action="/autosell/index.php" method="POST" class="text-end mt-4">
+            ?>
+            <form action="/autosell/index.php" method="POST" class="text-end mt-4">
               <a href="/autosell/blocks/login.php" type="button" class="btn btn-outline-light me-2">Разместить объявление</a>
               <a href="/autosell/blocks/login.php" type="button" class="btn btn-outline-light me-2">Вход</a>
               <a href="/autosell/blocks/registration.php" type="button" class="btn btn-info">Регистрация</a>
-            </form>';
+            </form>
+          <?php
           }
           else
           {
             $tmp = $user->getlogin();
-            echo '<form action="/autosell/index.php" method="GET" class="text-end mt-4">';
-            echo '<h4>Добро пожаловать, ';
-            echo $tmp;
-            echo '<button type="submit" name="Myads" value="1" class="btn btn-outline-light me-2 ml-3">Мои объявления</a>';
-            echo '<button type="submit" name="Newad" value="1" class="btn btn-outline-light me-2 ml-3">Разместить объявление</a>';
-            echo '</form>';
-            echo '<button type="submit" name="logout" class="btn btn-info ml-3">Выход</button>';
-            echo '</h4>';
-            echo '</form>';
+            ?>
+
+            <form action="/autosell/index.php" method="GET" class="text-end mt-4">
+            <h4>Добро пожаловать
+              <?php echo $tmp; ?>
+              <button type="submit" name="Myads" value="1" class="btn btn-outline-light me-2 ml-3">Мои объявления</a>
+              <button type="submit" name="Newad" value="1" class="btn btn-outline-light me-2 ml-3">Разместить объявление</a>
+            </form>
+            <button type="submit" name="logout" class="btn btn-info ml-3">Выход</button>
+            </h4>
+            </form>
+          <?php
           }
         ?>
       </div>

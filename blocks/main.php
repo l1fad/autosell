@@ -3,7 +3,9 @@
   		<div class="d-flex flex-wrap">
 	  		<?php
 	  		global $mysqli;
-	  		for($i = 1; $i < 7; $i++):
+	  		$result = $mysqli->query('SELECT COUNT(*) FROM Brand ');
+	  		$row1 = mysqli_fetch_row($result);
+	  		for($i = 1; $i <= $row1[0]; $i++):
 			?>
 		  		<div class="card mb-4 rounded-3 shadow-sm">
 		        	<div class="card-header py-3">	

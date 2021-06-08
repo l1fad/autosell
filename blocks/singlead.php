@@ -210,13 +210,20 @@
    <?php } ?>
         </div>
       </form>
+<?php 
+    if($user->getnum() != NULL)
+    {
+      ?>
+      <textarea  class="form-control" name="message" rows="4" maxlength="500" required="" placeholder="Задайте вопрос продавцу"></textarea>
+      <form action="/autosell/index.php?" method="POST" >
+        <div class="text-right">
+          <button type="submit" name="sendmessage" class="btn btn-success mt-2 pull-right" value = "<?php echo $_GET['Ad'] ?>">Отправить</button>
+        </div>
+      </form>
+<?php 
+    }
+    ?>
 
-    <textarea  class="form-control" name="message" rows="4" maxlength="500" required="" placeholder="Задайте вопрос продавцу"></textarea>
-    <form action="/autosell/index.php?" method="POST" >
-      <div class="text-right">
-        <button type="submit" name="sendmessage" class="btn btn-success mt-2 pull-right" value = "<?php echo $_GET['Ad'] ?>">Отправить</button>
-      </div>
-    </form>
   </div>
  
 </body>
