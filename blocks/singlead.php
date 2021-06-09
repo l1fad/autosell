@@ -28,11 +28,11 @@
               <img class="img-fluid" src="img/<?php echo $img[0] ?>" width="690" height="390"></img>
             </div>
             <?php
-              if ($row[15] > 1)
+              if ($row[14] > 1)
               {
             ?>
              <?php 
-                for($i = 2; $i <= $row[15]; $i++)
+                for($i = 2; $i <= $row[14]; $i++)
                 { 
                   $img = mysqli_fetch_row($result);
                   ?>
@@ -72,20 +72,20 @@
           $result = $mysqli->query('SELECT BNAME FROM Brand WHERE BNUM = \'' . $row1[1] . '\'');
           $row2 = mysqli_fetch_row($result);
         ?>
-        <label class="lead">Модель: <?php echo $row2[0] ?> <?php echo $row1[0] ?> <?php echo $row[13] ?> г.</label><br>
+        <label class="lead">Модель: <?php echo $row2[0] ?> <?php echo $row1[0] ?> <?php echo $row[12] ?> г.</label><br>
         <input type="hidden" name="brand" value = "<?php echo $row1[1] ?>">
         <input type="hidden" name="model" value = "<?php echo $row[3] ?>">
-        <input type="hidden" name="year" value = "<?php echo $row[13] ?>">
+        <input type="hidden" name="year" value = "<?php echo $row[12] ?>">
 
         <?php
           $result = $mysqli->query('SELECT ENAME FROM Engine1 WHERE ENUM = \'' . $row[6] . '\'');
           $row1 = mysqli_fetch_row($result);
 
         ?>
-        <label class="lead">Двигатель: <?php echo $row1[0] ?>, <?php echo $row[7] ?> л., <?php echo $row[14] ?> л.с.</label><br>
+        <label class="lead">Двигатель: <?php echo $row1[0] ?>, <?php echo $row[7] ?> л., <?php echo $row[13] ?> л.с.</label><br>
         <input type="hidden" name="engine" value = "<?php echo $row[6] ?>">
         <input type="hidden" name="engineval" value = "<?php echo $row[7] ?>">
-        <input type="hidden" name="power" value = "<?php echo $row[14] ?>">
+        <input type="hidden" name="power" value = "<?php echo $row[13] ?>">
         <?php
           $result = $mysqli->query('SELECT TNAME FROM Transmission WHERE TNUM = \'' . $row[8] . '\'');
           $row1 = mysqli_fetch_row($result);
